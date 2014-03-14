@@ -585,7 +585,8 @@ class EMRJobRunner(MRJobRunner):
 
         # pick/validate output dir
         if self._output_dir:
-            self._output_dir = self._check_and_fix_s3_dir(self._output_dir)
+#            self._output_dir = self._check_and_fix_s3_dir(self._output_dir)
+            pass
         else:
             self._output_dir = self._s3_tmp_uri + 'output/'
 
