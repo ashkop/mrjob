@@ -838,7 +838,7 @@ class EMRJobRunner(MRJobRunner):
         provisioning a cluster only to have Hadoop refuse to launch.
         """
         try:
-            if self.fs.path_exists(self._output_dir):
+            if is_s3_uri(self._output_dir) and self.fs.path_exists(self._output_dir):
                 raise IOError(
                     'Output path %s already exists!' % (self._output_dir,))
         except boto.exception.S3ResponseError:
